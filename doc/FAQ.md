@@ -35,7 +35,7 @@ Reference: http://rybkaforum.net/cgi-bin/rybkaforum/topic_show.pl?pid=259791#pid
 
 If you set up the user rights properly ([see above](https://github.com/fireice-uk/xmr-stak/blob/master/doc/FAQ.md#selockmemoryprivilege-failed)), and your system has 4-8GB of RAM (50%+ use), there is a significant chance that there simply won't be a large enough chunk of contiguous memory because Windows is fairly bad at mitigating memory fragmentation.
 
-If that happens, disable all auto-staring applications and run the miner after a reboot.
+If that happens, disable all auto-starting applications and run the miner after a reboot.
 
 ## Error msvcp140.dll and vcruntime140.dll not available
 
@@ -44,18 +44,18 @@ Download and install this [runtime package](https://go.microsoft.com/fwlink/?Lin
 
 ## Error: MEMORY ALLOC FAILED: mmap failed
 
-On Linux you will need to configure large page support and increase your ulimit -l. 
+On Linux you will need to configure large page support and increase your ulimit -l.
 
-To set large page support, add the following lines to /etc/sysctl.conf:
-    
+To set large page support, add the following lines to `/etc/sysctl.conf` (`/etc/sysctl.d/xmr-stak.conf` for [Arch Linux](https://www.archlinux.org/news/deprecation-of-etcsysctlconf/) and its derivatives):
+
     vm.nr_hugepages=128
 
-To increase the ulimit, add following lines to /etc/security/limits.conf:
+To increase the ulimit, add following lines to `/etc/security/limits.conf`:
 
     * soft memlock 262144
     * hard memlock 262144
 
-You WILL need to log out and log back in for these settings to take affect on your user (no need to reboot, just relogin in your session).
+You WILL need to log out and log back in for these settings to take effect on your user (no need to reboot, just relogin in your session).
 
 You can also do it Windows-style and simply run-as-root, but this is NOT recommended for security reasons.
 
