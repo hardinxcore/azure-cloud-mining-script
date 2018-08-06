@@ -1,8 +1,9 @@
 #include "version.hpp"
 
-//! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
+//! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
+#define GIT_ARCHIVE 1
 #if defined(GIT_ARCHIVE) && !defined(GIT_COMMIT_HASH)
-#define GIT_COMMIT_HASH $Format:%h$
+#define GIT_COMMIT_HASH c5f0505d
 #endif
 
 #ifndef GIT_COMMIT_HASH
@@ -18,7 +19,7 @@
 #endif
 
 #define XMR_STAK_NAME "xmr-stak"
-#define XMR_STAK_VERSION "2.4.3"
+#define XMR_STAK_VERSION "2.4.7"
 
 #if defined(_WIN32)
 #define OS_TYPE "win"
@@ -32,12 +33,10 @@
 #define OS_TYPE "unk"
 #endif
 
-#define COIN_TYPE "aeon-cryptonight-monero"
-
 #define XMRSTAK_PP_TOSTRING1(str) #str
 #define XMRSTAK_PP_TOSTRING(str) XMRSTAK_PP_TOSTRING1(str)
 
-#define VERSION_LONG  XMR_STAK_NAME "/" XMR_STAK_VERSION "/" XMRSTAK_PP_TOSTRING(GIT_COMMIT_HASH) "/" XMRSTAK_PP_TOSTRING(GIT_BRANCH) "/" OS_TYPE "/" XMRSTAK_PP_TOSTRING(BACKEND_TYPE) "/" COIN_TYPE "/"
+#define VERSION_LONG  XMR_STAK_NAME "/" XMR_STAK_VERSION "/" XMRSTAK_PP_TOSTRING(GIT_COMMIT_HASH) "/" XMRSTAK_PP_TOSTRING(GIT_BRANCH) "/" OS_TYPE "/" XMRSTAK_PP_TOSTRING(BACKEND_TYPE) "/"
 #define VERSION_SHORT XMR_STAK_NAME " " XMR_STAK_VERSION " " XMRSTAK_PP_TOSTRING(GIT_COMMIT_HASH)
 #define VERSION_HTML "v" XMR_STAK_VERSION "-" XMRSTAK_PP_TOSTRING(GIT_COMMIT_HASH)
 
